@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Contacto } from 'src/app/model/contacto.model';
 import { Model } from 'src/app/model/repository.model';
 
