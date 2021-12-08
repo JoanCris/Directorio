@@ -13,27 +13,19 @@ import { FormatPhonePipe } from './pipes/formatPhone.pipe';
 
 @NgModule({
   declarations: [
-    TableComponent,
-    FormComponent,
-    FormatPhonePipe
+
   ],
   imports: [
-    BrowserModule,    
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    ComponentsModule,
+    ModelModule
   ],
   providers: [
-    Model,
-    RestDataSource,
-    {
-      provide: REST_URL,
-      useValue: 'http://localhost:3500/contactos'
-    }
+
   ],
   bootstrap: [
     TableComponent,
     FormComponent
   ],
 })
+
 export class AppModule { }
