@@ -1,16 +1,37 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import { FormComponent } from './components/form/form.component';
+import { TableComponent } from './components/table/table.component';
+import { Model } from './model/repository.model';
+import { RestDataSource, REST_URL } from './model/rest.dataSource';
+import { FormatPhonePipe } from './pipes/formatPhone.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    TableComponent,
+    FormComponent,
+    FormatPhonePipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    Model,
+    RestDataSource,
+    {
+      provide: REST_URL,
+      useValue: 'http://localhost:3500/contactos'
+    }
+  ],
+  bootstrap: [
+    TableComponent,
+    FormComponent
+  ],
 })
 export class AppModule { }

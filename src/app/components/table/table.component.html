@@ -1,0 +1,27 @@
+<h1 class="text-center m-4">Directorio</h1>
+<table class="table table-striped table-bordered table-dark text-center">
+  <thead>
+    <tr>
+      <th *ngFor="let keys of getKeys()">
+        {{keys | uppercase}}
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let contacto of getContactos()">
+      <td>{{contacto.nombre}}</td>
+      <td>{{contacto.apellido}}</td>
+      <td>{{contacto.edad}}</td>
+      <td>{{contacto.email}}</td>
+      <td>{{contacto.telefono | formatPhone}}</td>
+      <td>
+        <button class="btn btn-danger text-white"
+                (click)="deleteContacto(contacto.id)">
+          Eliminar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

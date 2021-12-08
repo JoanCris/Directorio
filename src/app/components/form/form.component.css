@@ -1,0 +1,16 @@
+input{
+  width: 50%;
+}
+
+button{
+  width: 150px;
+}
+
+button:first-of-type{
+  align-self: flex-end;
+  background-color: rgb(51, 177, 89);
+}
+
+button:last-of-type{
+  align-self: flex-start;
+}

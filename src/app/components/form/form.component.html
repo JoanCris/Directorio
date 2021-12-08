@@ -1,0 +1,81 @@
+<form novalidate
+      #form="ngForm"
+      (ngSubmit)="submitForm(form)"
+      class="bg-dark bg-opacity-50 rounded text-white text-end pt-3 pb-3" >
+  
+  <fieldset class="container">
+    <legend class="text-uppercase font-weight-bold text-center">Agregar Contacto</legend>
+
+    <div class="row p-2 mb-2 rounded border-5 text-start" *ngIf="formSubmitted && form.invalid">
+      <div class="col-1"></div>
+      <p class="col-8 text-danger font-weight-bold h6">FORMULARIO INVALIDO</p>
+      <div class="col-3"></div>
+      <div class="col-12 row">
+        <div class="col-2"></div>
+
+        <ul class="col-8 row text-danger font-weight-bold h6">
+          <li class="col-12" *ngFor="let error of getFormValidationMessages(form)">{{error}}</li>
+        </ul>
+
+        <div class="col-2"></div>
+      </div>
+      
+    </div>
+
+    <div class="row form-group mt-1">
+      <label class="col-3">Nombre:</label>
+      <div class="col-1"></div>
+      <input class="col-6 rounded-3 border-0"
+             name="nombre"
+             required
+             [(ngModel)]="contacto.nombre" />
+      <div class="col-2"></div>             
+    </div>
+
+    <div class="row form-group mt-1">
+      <label class="col-3">Apellido:</label>
+      <div class="col-1"></div>
+      <input class="col-6 rounded-3 border-0"
+             name="apellido"
+             [(ngModel)]="contacto.apellido" />
+      <div class="col-2"></div>
+    </div>
+
+    <div class="row form-group mt-1">
+      <label class="col-3">Edad:</label>
+      <div class="col-1"></div>
+      <input class="col-6 rounded-3 border-0"
+             name="edad"
+             [(ngModel)]="contacto.edad" />
+      <div class="col-2"></div>
+    </div>
+
+    <div class="row form-group mt-1">
+      <label class="col-3">Email:</label>
+      <div class="col-1"></div>
+      <input class="col-6 rounded-3 border-0"
+              type="email"
+              name="email"
+              [(ngModel)]="contacto.email" />
+    </div>
+
+    <div class="row form-group mt-1">
+      <label class="col-3">Teléfono:</label>
+      <div class="col-1"></div>
+      <input class="col-6 rounded-3 border-0"
+             type="tel"
+             name="telefono"
+             [(ngModel)]="contacto.telefono" />
+      <div class="col-2"></div>
+    </div>
+
+    <div class="row m-2">
+      <div class="col-1"></div>
+      <button class="btn text-white col-4" type="submit">Nuevo Contacto</button>
+      <div class="col-2"></div>
+      <button class="btn btn-danger text-white col-4" type="reset">Cancelar</button>
+      <div class="col-1"></div>
+    </div>
+    
+  </fieldset>  
+</form>
